@@ -1,0 +1,166 @@
+<style>
+.ul{
+  display: inline-block;
+}
+.div{
+  display:inline-block;
+}
+
+.card-overlay {
+	background-color: rgba(200, 200, 200, 0.3);
+	display: inline-block;
+  border-radius: 10px; 
+    padding: 10px; 
+    margin: 20px;
+    width: 33%;
+    height: 470px; 
+    font-family: Times New Roman;
+    padding: 3%;
+}
+.teal-text{
+    color: white;
+}
+.card-block{
+    color: white;
+    
+}
+  .row{
+    max-width: 75rem;
+      flex-flow: row wrap;
+      background: transparent;
+      
+  }
+.description { width: 150px; height: 80px; border: 1px solid #999999; padding: 5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+ }
+.name{
+width: 150px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+
+}
+.email{
+width: 150px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+
+}
+.project_name{
+width: 150px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+.skills{
+width: 150px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+
+
+
+</style>
+<div class="container" id="ideas" style="width: 100%">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                <button class="btn btn-primary  pull-left " style="margin-top:120px" (click)="lgModal.show()">Add your idea</button>
+ 
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Project details</h4>
+        <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+       <div class="modal-body" style="height: 400px" >
+        <form id="add-employee">
+            <div class="form-group">
+            <label class="col-sm-5"align="center">Your Name:</label>
+            <input class="name col-sm-4" style="width:40% ;height:5%;" type="text" [(ngModel)]="name"  [ngModelOptions]="{standalone: true}"/>
+            </div>
+            <div class="form-group">
+            <label class="col-sm-5"align="center">Email:</label>
+            <input  class="email col-sm-4" style="width:40% ;height:5%;" type="text" [(ngModel)]="email"  [ngModelOptions]="{standalone: true}" />
+            </div>
+            <div class="form-group">
+            <label class="col-sm-5"align="center">Project Name</label>
+            <input class="project_name col-sm-4" style="width:40% ;height:5%;" type="text" [(ngModel)]="project_name"  [ngModelOptions]="{standalone: true}" />
+            </div>
+            <div class="form-group">
+             <label class="col-sm-5"align="center">Project description</label>
+             <input  class="description col-sm-4" style="width:40% ;" type="text"[(ngModel)]="description"  [ngModelOptions]="{standalone: true}"/>
+            </div>
+            <div class="form-group">
+            <label class="col-sm-5"align="center">Technical skills required</label>
+            <input  class="skills col-sm-4" style="width:40% ;height:10%;" type="text" [(ngModel)]="skills"  [ngModelOptions]="{standalone: true}"/>
+            </div>
+            <div>
+
+
+             <button  class="w3-btn w3-round-large w3-yellow col-sm-5" style="width:30% ;margin-left:10%;margin-right:5%;"  (click)="fbPostData(name,email,project_name,description,skills)" >Add Idea</button>
+              <button  class="w3-btn w3-round-large w3-yellow col-sm-5" style="width:30% ;margin-left:5%;margin-right:10%;" (click)="lgModal.hide()">Close</button>
+      <div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title pull-left">Thank you!</h4>
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="hideChildModal();">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+               </div>
+               <div class="modal-body">
+                  <div>
+                    <alert type="success">
+                    <strong>Well done!</strong> Your idea has been recorded!
+                    </alert>
+                 </div>
+               <div>
+                  <button (click)="hideChildModal() ">Ok</button>
+               </div>
+        </div>
+      </div>
+  </div>
+</div>
+             
+            </div>
+  </form>
+      </div>
+    </div>
+  </div>
+</div> 
+                    <h2 class="section-heading" style="margin-top:120px">Ideas</h2>
+                </div>
+            </div>
+
+
+            
+<div class="scrollmenu" style="height:520px;background-size: cover;background-image:  url(https://mdbootstrap.com/img/Photos/Exposure/Dark/courses.jpg);" >
+
+    <div class="row" style="display:inline-block;">
+
+    <!--Content-->
+    
+        <div class="white-text text-center card-overlay" *ngFor="let idea of ideas"style="display:inline-block;" >
+          
+            <h5 class="teal-text"><i class="fa fa-pie-chart" style="margin-bottom:25px;margin-top:25px;"></i> {{idea.skills}}</h5>
+            <div style="color:burlywood"><h3>{{idea.project_name}}</h3>
+            <div style="margin-bottom:25px;margin-top:25px;overflow:hidden;">{{idea.description}}</div>
+            <p style="margin-bottom:25px;margin-top:25px;">{{idea.name}}</p>
+            <p style="margin-bottom:25px;margin-top:25px;">{{idea.skills}}</p>
+            </div>
+            <a class="btn btn-lg btn-white-outline" (click)="ping(idea.project_name)" ><i class="fa fa-clone left"></i> Ping</a>
+        </div>
+    
+</div>
+  
+            
+
+</div>
+        </div>

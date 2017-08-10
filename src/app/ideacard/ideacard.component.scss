@@ -1,0 +1,15 @@
+
+$url_0: url(https://mdbootstrap.com/img/Photos/Exposure/Dark/courses.jpg);
+
+.card-overlay {
+	background-image: $url_0;
+	display: inline-block;
+    width: 600px;
+    height: 650px;
+}
+.teal-text{
+    color: white;
+}
+.card-block{
+    color: white;
+}

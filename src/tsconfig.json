@@ -5,6 +5,10 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": ["es6", "dom"],
+    "types": [
+      "jasmine",
+      "webpack"
+    ],
     "mapRoot": "./",
     "module": "es6",
     "moduleResolution": "node",

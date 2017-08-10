@@ -1,0 +1,66 @@
+<style>
+.ul{
+  display: inline-block;
+}
+.div{
+  display:inline-block;
+}
+
+.card-overlay {
+		background-color: rgba(200, 200, 200, 0.3);
+	display: inline-block;
+  border-radius: 10px; 
+    padding: 10px; 
+    margin: 10px;
+    width: 350px;
+    height: 430px; 
+    font-family: Times New Roman;
+    padding: 3%;
+}
+.teal-text{
+    color: white;
+}
+.card-block{
+    color: white;
+    
+}
+  .row{
+    max-width: 75rem;
+      flex-flow: row wrap;
+      
+  }
+</style>
+<div class="container" id="ongoing" style="width: 100%">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading" style="margin-top:120px">Ongoing Projects</h2>
+                </div>
+            </div>
+            
+<div class="scrollmenu" style="height:480px;background-size: cover;background-image:  url(https://mdbootstrap.com/img/Photos/Exposure/Dark/courses.jpg);"  >
+<div class="row"  style="display: inline-block">
+
+
+    <!--Content-->
+    <div *ngFor="let idea of ideas" style="display:inline-block;">
+        <div class="white-text text-center card-overlay" *ngIf="idea.project_status>0"   style="display:inline-block;" >
+          
+            <h5 class="teal-text"style="margin-bottom:25px;margin-top:25px;"><i class="fa fa-pie-chart"></i> {{idea.skills}}</h5>
+            <div style="color:burlywood;margin-bottom:25px;margin-top:25px;"><h3>{{idea.name}}</h3>
+            <p style="margin-bottom:25px;margin-top:25px;">{{idea.description}}</p></div>
+            <meta charset="utf-8">
+              <div style="margin-bottom:10px;margin-top:100px;margin-left:125px;margin-right:125px;">
+               <link rel="stylesheet" href="css/circle.css">
+               <div class="c100 p25 small">
+                <span>25%</span>
+                <div class="slice">
+                    <div class="bar"></div>
+                    <div class="fill"></div>
+                </div>
+              </div>
+           </div>
+        </div>
+    </div>           
+</div>
+</div>
+        </div>
